@@ -28,7 +28,7 @@ public class GitHubIssueTestWithSteps {
     @Severity(SeverityLevel.NORMAL)
     @Feature("Issues")
     @Story("Ищем issues в существующем репозитории")
-    @Link("https://github.com")
+    @Link(name = "Base URL", value = BASE_URL)
     @DisplayName("Поиск issue по номеру репозитория")
 
     public void testIssueSearch() {
