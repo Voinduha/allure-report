@@ -35,7 +35,7 @@ public class GitHubLambdaStepTest {
             $(withText("Issue")).click();
         });
         step("Проверяем, что Issue с номером " + ISSUE_NUMBER + " существует", () -> {
-            $(withText(ISSUE_NUMBER)).should(Condition.exist);
+            $(withText(ISSUE_NUMBER)).shouldBe(Condition.visible);
         });
     }
 }

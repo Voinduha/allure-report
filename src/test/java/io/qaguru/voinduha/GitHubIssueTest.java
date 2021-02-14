@@ -29,7 +29,6 @@ public class GitHubIssueTest  {
         $(By.linkText(REPOSITORY)).click();
         $(withText("Issues")).click();
         $(withText(ISSUE_NUMBER)).shouldBe(Condition.visible);
-        //$(withText(ISSUE_NUMBER)).should(Condition.exist);
     }
 }
 
