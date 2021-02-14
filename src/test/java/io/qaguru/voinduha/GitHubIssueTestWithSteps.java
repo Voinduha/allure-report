@@ -1,7 +1,9 @@
 package io.qaguru.voinduha;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -32,6 +34,9 @@ public class GitHubIssueTestWithSteps {
     @DisplayName("Поиск issue по номеру репозитория")
 
     public void testIssueSearch() {
+        // Подключаем к тесту логгер
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
         parameter("Repository", REPOSITORY);
         parameter("Issue Number", ISSUE_NUMBER);
 
