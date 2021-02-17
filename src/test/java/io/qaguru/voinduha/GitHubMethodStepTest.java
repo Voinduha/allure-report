@@ -17,7 +17,7 @@ public class GitHubMethodStepTest {
         steps.searchForRepository(REPOSITORY);
         steps.goToRepositoryFromSearch(REPOSITORY);
         steps.openRepositoryIssues();
-        steps.shouldSeenIssueWithNumber(ISSUE_NUMBER);
+        steps.shouldSeenIssueWithNumber();
 
 
     }

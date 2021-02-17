@@ -5,8 +5,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -40,20 +38,14 @@ public class GitHubIssueTestWithSteps {
         parameter("Repository", REPOSITORY);
         parameter("Issue Number", ISSUE_NUMBER);
 
-        step("Открываем главную страницу ", () -> {
-            open(BASE_URL);
-        });
+        step("Открываем главную страницу ", () -> open(BASE_URL));
         step("Ищем репозиторий " + REPOSITORY, () -> {
             $(".header-search-input").click();
             $(".header-search-input").sendKeys(REPOSITORY);
             $(".header-search-input").submit();
         });
-        step("Переходим в репозиторий " + REPOSITORY, () -> {
-            $(By.linkText(REPOSITORY)).click();
-        });
-        step("Переходим в раздел " + ISSUES, () -> {
-            $(withText("Issue")).click();
-        });
+        step("Переходим в репозиторий " + REPOSITORY, () -> $(By.linkText(REPOSITORY)).click());
+        step("Переходим в раздел " + ISSUES, () -> $(withText("Issue")).click());
         step("Проверяем, что Issue с номером " + ISSUE_NUMBER + " существует", () -> {
             $(withText(ISSUE_NUMBER)).shouldBe(Condition.visible);
         });

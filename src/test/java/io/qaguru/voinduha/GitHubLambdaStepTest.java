@@ -20,20 +20,14 @@ public class GitHubLambdaStepTest {
 
     @Test
     public void issueTestSearch() {
-        step("Открываем главную страницу ", () -> {
-            open(BASE_URL);
-        });
+        step("Открываем главную страницу ", () -> open(BASE_URL));
         step("Ищем репозиторий " + REPOSITORY, () -> {
             $(".header-search-input").click();
             $(".header-search-input").sendKeys(REPOSITORY);
             $(".header-search-input").submit();
         });
-        step("Переходим в репозиторий " + REPOSITORY, () -> {
-            $(By.linkText(REPOSITORY)).click();
-        });
-        step("Переходим в раздел " + ISSUES, () -> {
-            $(withText("Issue")).click();
-        });
+        step("Переходим в репозиторий " + REPOSITORY, () -> $(By.linkText(REPOSITORY)).click());
+        step("Переходим в раздел " + ISSUES, () -> $(withText("Issue")).click());
         step("Проверяем, что Issue с номером " + ISSUE_NUMBER + " существует", () -> {
             $(withText(ISSUE_NUMBER)).shouldBe(Condition.visible);
         });

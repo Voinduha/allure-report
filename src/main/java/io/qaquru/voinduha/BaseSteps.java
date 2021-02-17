@@ -1,6 +1,5 @@
 package io.qaquru.voinduha;
 
-import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
@@ -39,7 +38,7 @@ public class BaseSteps {
 
 
     @Step("Проверяем, что Issue с номером {Number} существует")
-        public void shouldSeenIssueWithNumber(final String number)  {
+        public void shouldSeenIssueWithNumber()  {
         }
     }
 
