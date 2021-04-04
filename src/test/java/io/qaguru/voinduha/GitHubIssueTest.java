@@ -10,12 +10,13 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class GitHubIssueTest  {
+public class GitHubIssueTest {
 
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final String ISSUE_NUMBER = "#68";
 
     @Test
+
     public void testIssueSearch() {
 
         // Подключаем к тесту логгер
@@ -23,9 +24,7 @@ public class GitHubIssueTest  {
 
         open("https://github.com");
 
-        $(".header-search-input").click();
-        $(".header-search-input").sendKeys(REPOSITORY);
-        $(".header-search-input").submit();
+        $(".header-search-input").setValue(REPOSITORY).pressEnter();
         $(By.linkText(REPOSITORY)).click();
         $(withText("Issues")).click();
         $(withText(ISSUE_NUMBER)).shouldBe(Condition.visible);

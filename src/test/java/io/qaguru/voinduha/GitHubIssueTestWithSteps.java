@@ -40,9 +40,7 @@ public class GitHubIssueTestWithSteps {
 
         step("Открываем главную страницу ", () -> open(BASE_URL));
         step("Ищем репозиторий " + REPOSITORY, () -> {
-            $(".header-search-input").click();
-            $(".header-search-input").sendKeys(REPOSITORY);
-            $(".header-search-input").submit();
+            $(".header-search-input").setValue(REPOSITORY).pressEnter();
         });
         step("Переходим в репозиторий " + REPOSITORY, () -> $(By.linkText(REPOSITORY)).click());
         step("Переходим в раздел " + ISSUES, () -> $(withText("Issue")).click());
